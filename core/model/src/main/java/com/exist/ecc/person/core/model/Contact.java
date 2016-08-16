@@ -11,6 +11,8 @@ import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "CONTACT_TYPE")
@@ -25,6 +27,7 @@ public class Contact {
   @Column(name = "INFO")
   private String info;
 
+  @NotBlank
   @ManyToOne
   @JoinColumn(name = "PERSON_ID")
   private Person person;

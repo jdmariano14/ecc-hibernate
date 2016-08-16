@@ -3,12 +3,16 @@ package com.exist.ecc.person.core.model;
 import javax.persistence.Embeddable;
 import javax.persistence.Column;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Embeddable
 public class Name {
   
+  @NotBlank
   @Column(name = "LAST_NAME")
   private String lastName;
 
+  @NotBlank
   @Column(name = "FIRST_NAME")
   private String firstName;
 

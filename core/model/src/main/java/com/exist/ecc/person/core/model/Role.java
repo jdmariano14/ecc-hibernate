@@ -10,6 +10,8 @@ import javax.persistence.Column;
 import javax.persistence.ManyToMany;
 import javax.persistence.CascadeType;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table(name = "ROLE")
 public class Role {
@@ -19,6 +21,7 @@ public class Role {
   @Column(name = "ROLE_ID")
   private long roleId;
   
+  @NotBlank
   @Column(name = "NAME")
   private String name;
 
