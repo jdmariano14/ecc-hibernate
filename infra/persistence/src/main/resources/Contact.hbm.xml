@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+  "-//Hibernate/Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.exist.ecc.person.core.model.Contact" table="CONTACT">
+
+    <id name="contactId" column="CONTACT_ID" type="long">
+      <generator class="native"/>
+    </id>
+
+    <discriminator column="CONTACT_TYPE" type="string"/>
+
+    <property name="info" column="INFO" type="string"/>
+
+    <many-to-one name="person" class="com.exist.ecc.person.core.model.Person" fetch="select">
+      <column name="PERSON_ID" not-null="true" />
+    </many-to-one>
+
+    <subclass name="com.exist.ecc.person.core.model.Email" discriminator-value="EMAIL" />
+
+    <subclass name="com.exist.ecc.person.core.model.Landline" discriminator-value="LANDLINE" />
+
+    <subclass name="com.exist.ecc.person.core.model.Mobile" discriminator-value="MOBILE" />
+      
+   </class>
+</hibernate-mapping>
