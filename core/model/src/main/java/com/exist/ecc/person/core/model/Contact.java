@@ -24,10 +24,10 @@ public class Contact {
   @Column(name = "CONTACT_ID")
   private long contactId;
 
+  @NotBlank
   @Column(name = "INFO")
   private String info;
 
-  @NotBlank
   @ManyToOne
   @JoinColumn(name = "PERSON_ID")
   private Person person;
