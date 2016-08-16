@@ -4,24 +4,49 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Collection;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "PERSON")
 public class Person {
 
+  @Id
+  @GeneratedValue
+  @Column(name = "PERSON_ID")
   private long personId;
 
+  @Embedded
   private Name name;
 
+  @Embedded
   private Address address;
 
+  @Temporal(value = TemporalType.DATE)
+  @Column(name = "BIRTH_DATE")
   private Date birthDate;
 
+  @Temporal(value = TemporalType.DATE)
+  @Column(name = "DATE_HIRED")
   private Date dateHired;
 
+  @Column(name = "GWA")
   private BigDecimal gwa;
 
+  @Column(name = "EMPLOYED")
   private boolean employed;
   
+  @Transient
   private Collection<Contact> contacts;
 
+  @Transient
   private Collection<Role> roles;
 
   public long getPersonId() {
