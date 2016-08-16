@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+  "-//Hibernate/Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.exist.ecc.person.core.model.Person" table="PERSON">
+      <id name="personId" column="PERSON_ID" type="long">
+         <generator class="native"/>
+      </id>
+
+      <component name="name" class="com.exist.ecc.person.core.model.Name">
+        <property name="firstName" column="FIRST_NAME" type="string"/>
+        <property name="middleName" column="MIDDLE_NAME" type="string"/>
+        <property name="lastName" column="LAST_NAME" type="string"/>
+        <property name="suffix" column="SUFFIX" type="string"/>
+        <property name="title" column="TITLE" type="string"/>
+      </component>
+
+      <component name="address" class="com.exist.ecc.person.core.model.Address">
+        <property name="streetAddress" column="STREET_ADDRESS" type="string"/>
+        <property name="barangay" column="BARANGAY" type="string"/>
+        <property name="municipality" column="MUNICIPALITY" type="string"/>
+        <property name="zipCode" column="ZIP_CODE" type="string"/>
+      </component>
+
+      <property name="birthDate" column="BIRTH_DATE" type="date"/>
+      <property name="dateHired" column="DATE_HIRED" type="date"/>
+      <property name="gwa" column="GWA" type="big_decimal"/>
+      <property name="employed" column="EMPLOYED" type="boolean"/>
+   </class>
+</hibernate-mapping>

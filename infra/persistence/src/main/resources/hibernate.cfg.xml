@@ -10,6 +10,7 @@
 
     <property name="hibernate.show_sql">true</property>
 
+    <mapping resource="Person.hbm.xml"/>
     <mapping resource="Role.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
