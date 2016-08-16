@@ -13,8 +13,9 @@ import javax.persistence.Embedded;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
+import javax.persistence.ManyToMany;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 
@@ -47,7 +48,7 @@ public class Person {
   @Column(name = "EMPLOYED")
   private boolean employed;
   
-  @Transient
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "person")
   private Collection<Contact> contacts;
 
   @ManyToMany(cascade = CascadeType.ALL)
