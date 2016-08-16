@@ -4,19 +4,21 @@
   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
 <hibernate-mapping>
-   <class name="com.exist.ecc.person.core.model.Role" table="ROLE">
-      <id name="roleId" column="ROLE_ID" type="long">
-         <generator class="native"/>
-      </id>
-      <property name="name" column="NAME" type="string"/>
+  <class name="com.exist.ecc.person.core.model.Role" table="ROLE">
+    <id name="roleId" column="ROLE_ID" type="long">
+      <generator class="native"/>
+    </id>
 
-      <set name="persons" table="PERSON_ROLE" inverse="true" lazy="true" fetch="select" cascade="all" >
-        <key>
-          <column name="ROLE_ID" not-null="true" />
-        </key>
-        <many-to-many entity-name="com.exist.ecc.person.core.model.Person">
-          <column name="PERSON_ID" not-null="true" />
-        </many-to-many>
-      </set>
+    <property name="name" column="NAME" type="string"/>
+
+    <set name="persons" table="PERSON_ROLE" inverse="true" lazy="true" fetch="select" cascade="all" >
+      <key>
+        <column name="ROLE_ID" not-null="true" />
+      </key>
+
+      <many-to-many entity-name="com.exist.ecc.person.core.model.Person">
+        <column name="PERSON_ID" not-null="true" />
+      </many-to-many>
+    </set>
    </class>
 </hibernate-mapping>
