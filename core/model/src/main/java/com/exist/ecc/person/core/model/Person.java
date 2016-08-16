@@ -13,6 +13,10 @@ import javax.persistence.Embedded;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.persistence.ManyToMany;
+import javax.persistence.CascadeType;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "PERSON")
@@ -46,7 +50,10 @@ public class Person {
   @Transient
   private Collection<Contact> contacts;
 
-  @Transient
+  @ManyToMany(cascade = CascadeType.ALL)
+  @JoinTable(name = "PERSON_ROLE",
+             joinColumns = @JoinColumn(name = "PERSON_ID"), 
+             inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
   private Collection<Role> roles;
 
   public long getPersonId() {

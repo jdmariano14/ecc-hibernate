@@ -7,7 +7,8 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
-import javax.persistence.Transient;
+import javax.persistence.ManyToMany;
+import javax.persistence.CascadeType;
 
 @Entity
 @Table(name = "ROLE")
@@ -21,7 +22,7 @@ public class Role {
   @Column(name = "NAME")
   private String name;
 
-  @Transient
+  @ManyToMany(cascade = CascadeType.ALL, mappedBy = "roles")
   private Collection<Person> persons;
 
   public long getRoleId() {
