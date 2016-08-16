@@ -28,5 +28,14 @@
       <property name="dateHired" column="DATE_HIRED" type="date"/>
       <property name="gwa" column="GWA" type="big_decimal"/>
       <property name="employed" column="EMPLOYED" type="boolean"/>
+
+      <set name="roles" table="PERSON_ROLE" inverse="false" lazy="true" fetch="select" cascade="all" >
+        <key>
+          <column name="PERSON_ID" not-null="true" />
+        </key>
+        <many-to-many entity-name="com.exist.ecc.person.core.model.Role">
+          <column name="ROLE_ID" not-null="true" />
+        </many-to-many>
+      </set>
    </class>
 </hibernate-mapping>
