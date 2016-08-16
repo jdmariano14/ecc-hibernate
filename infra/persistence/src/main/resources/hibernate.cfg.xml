@@ -10,11 +10,6 @@
 
     <property name="hibernate.show_sql">true</property>
 
-    <mapping class="com.exist.ecc.person.core.model.Person"/>
-    <mapping class="com.exist.ecc.person.core.model.Role"/>
-    <mapping class="com.exist.ecc.person.core.model.Contact"/>
-    <mapping class="com.exist.ecc.person.core.model.Email"/>
-    <mapping class="com.exist.ecc.person.core.model.Landline"/>
-    <mapping class="com.exist.ecc.person.core.model.Mobile"/>
+    <mapping resource="Role.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
