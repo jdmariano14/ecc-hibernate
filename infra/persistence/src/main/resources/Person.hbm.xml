@@ -29,16 +29,16 @@
     <property name="gwa" column="GWA" type="big_decimal"/>
     <property name="employed" column="EMPLOYED" type="boolean"/>
 
-    <set name="contacts" table="CONTACTS"
+    <bag name="contacts" table="CONTACTS"
       inverse="true" lazy="true" fetch="select">
       <key>
         <column name="PERSON_ID" not-null="true" />
       </key>
 
       <one-to-many class="com.exist.ecc.person.core.model.Contact" />
-    </set>
+    </bag>
 
-    <set name="roles" table="PERSON_ROLE" inverse="false" lazy="true" fetch="select" cascade="all" >
+    <bag name="roles" table="PERSON_ROLE" inverse="false" lazy="true" fetch="select" cascade="all" >
       <key>
         <column name="PERSON_ID" not-null="true" />
       </key>
@@ -46,6 +46,6 @@
       <many-to-many entity-name="com.exist.ecc.person.core.model.Role">
         <column name="ROLE_ID" not-null="true" />
       </many-to-many>
-    </set>
+    </bag>
    </class>
 </hibernate-mapping>
