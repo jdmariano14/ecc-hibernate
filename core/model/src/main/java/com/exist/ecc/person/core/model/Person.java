@@ -19,6 +19,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 @Entity
 @Table(name = "PERSON")
 public class Person {
@@ -42,6 +45,8 @@ public class Person {
   @Column(name = "DATE_HIRED")
   private Date dateHired;
 
+  @Min(1)
+  @Max(5)
   @Column(name = "GWA")
   private BigDecimal gwa;
 
