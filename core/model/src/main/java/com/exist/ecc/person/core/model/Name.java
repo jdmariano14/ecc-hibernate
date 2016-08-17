@@ -1,7 +1,7 @@
 package com.exist.ecc.person.core.model;
 
-import javax.persistence.Embeddable;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 import org.hibernate.validator.constraints.NotBlank;
 
